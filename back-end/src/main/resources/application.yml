@@ -1,0 +1,58 @@
+server:
+  port: 8888
+mybatis-plus:
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+spring:
+  .servlet:
+    multipart:
+      max-file-size: 10MB
+  mail:
+    port: 587
+    host: smtp.qq.com
+    username: 2786696108@qq.com
+    password: vuucnrkdpmvxdgei
+    default-encoding: UTF-8
+    properties:
+      mail:
+        write timeout: 5000
+        smtp:
+          connection-timeout: 5000
+          timeout: 3000
+          socketFactory:
+            class: javax.net.ssl.SSLSocketFactory
+  rabbitmq:
+    addresses: localhost
+    username: guest
+    password: guest
+    virtual-host: /
+  security:
+    oauth2:
+     client:
+       registration:
+        qq:
+         client-id: 102154394
+         client-secret: uqjWEqNjvwmQxIVX
+         redirect-uri: "https://www.cami1e.online/homePage"
+         scope: get_user_info,list_album,upload_pic,do_like
+         authorization-grant-type: authorization_code
+       provider:
+         qq:
+           authorization-uri: https://graph.qq.com/oauth2.0/authorize
+           token-uri: https://graph.qq.com/oauth2.0/token
+           user-info-uri: https://graph.qq.com/oauth2.0/me
+           user-name-attribute: openid
+    filter:
+      order: -100
+    jwt:
+      key: abcdefg
+      expire: 7
+
+  datasource:  #1.注册驱动2.获取数据库链接对象(本机地址，用户名，密码)3.sql
+    type: com.alibaba.druid.pool.DruidDataSource
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/subjectcontest?useUnicode=true&characterEncoding=UTF-8
+    username: root
+    password: 123456
+
+
